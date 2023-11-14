@@ -1,6 +1,6 @@
 <?php
-
-class HotelModels{
+namespace app\models;
+class BookingModels{
     private $db;
 
 public function __construct($db)
@@ -14,23 +14,23 @@ public function __construct($db)
 
 public function get()
 {
-    return $this->db->get('hotels');
+    return $this->db->get('bookings');
 }
 public function gettById($id)
-{  return $this->db->where('id', $id)->getOne('hotels');
+{  return $this->db->where('id', $id)->getOne('bookings');
 }
 public function addHotel($data){
 
-    return $this->db->insert('hotels',$data);
+    return $this->db->insert('bookings',$data);
 }
 public function updateHotel($id, $data) {
     $this->db->where('id', $id);
-    return $this->db->update('hotels', $data);
+    return $this->db->update('bookings', $data);
 }
  
 public function deleteHotel($id) {
     $this->db->where('id', $id);
-    return $this->db->delete('hotels');
+    return $this->db->delete('bookings');
 }
 }
 ?>
