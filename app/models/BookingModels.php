@@ -12,23 +12,23 @@ public function __construct($db)
 
 }
 
-public function get()
+public function getBooking()
 {
     return $this->db->get('bookings');
 }
 public function gettById($id)
 {  return $this->db->where('id', $id)->getOne('bookings');
 }
-public function addHotel($data){
+public function addBooking($data){
 
     return $this->db->insert('bookings',$data);
 }
-public function updateHotel($id, $data) {
+public function updateBooking($id, $data) {
     $this->db->where('id', $id);
     return $this->db->update('bookings', $data);
 }
  
-public function deleteHotel($id) {
+public function deleteBooking($id) {
     $this->db->where('id', $id);
     return $this->db->delete('bookings');
 }

@@ -15,14 +15,14 @@ class CustomerModel {
     {
         return $this->db->insert('customers',$data) ;
     }
-    public function updateUser($data,$id)
+    public function updatecustomers($data,$id)
     {
         $where = $this->db->where('id',$id) ;
         $update = $this->db->update('customers',$data) ;
         return $update ;
 
     }
-    public function deleteUser($id) 
+    public function deletecustomers($id) 
     {
         $where = $this->db->where('id' ,$id) ;
         $delete = $this->db->delete('customers') ;

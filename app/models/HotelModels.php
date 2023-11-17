@@ -16,7 +16,7 @@ public function get()
 {
     return $this->db->get('hotels');
 }
-public function gettById($id)
+public function getHotelById($id)
 {  return $this->db->where('id', $id)->getOne('hotels');
 }
 public function addHotel($data){
