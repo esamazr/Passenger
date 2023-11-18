@@ -31,7 +31,7 @@ class RatingModel {
     }
 
     public function searchRating($searchTerm) {
-        $this->db->where('username', $searchTerm, 'LIKE');
+        $this->db->where('rate',$searchTerm,'LIKE');
         return $this->db->get('ratings');
     }
 }

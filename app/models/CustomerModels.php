@@ -1,7 +1,7 @@
 <?php
 namespace app\models;
 
-class CustomerModel {
+class CustomerModels {
     private $db ;
     public function __construct($db)
     {
@@ -15,18 +15,17 @@ class CustomerModel {
     {
         return $this->db->insert('customers',$data) ;
     }
-    public function updatecustomers($data,$id)
+    public function updatecustomers($id,$data)
     {
-        $where = $this->db->where('id',$id) ;
-        $update = $this->db->update('customers',$data) ;
-        return $update ;
+    
+        $this->db->where('id', $id);
+    return $this->db->update('customers', $data);
 
     }
     public function deletecustomers($id) 
     {
-        $where = $this->db->where('id' ,$id) ;
-        $delete = $this->db->delete('customers') ;
-        return $delete ;
+        $this->db->where('id', $id);
+    return $this->db->delete('customers');
     }
     public function getcustomersbyId($id)
     {

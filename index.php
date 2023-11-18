@@ -21,16 +21,16 @@ $modelbooking = new \app\models\BookingModels($db);
 $controllerbooking = new app\controllers\BookingController($modelbooking); 
 $modeladmin=new \app\models\AdminModels($db);
 $controlleradmin =new app\controllers\AdminController($modeladmin);
-/* $modelcompany =new \app\models\CompanyModel($db) ;
-$controllercompany = new app\controllers\CompanyController($modelcompany) ;
-$modelcustomer = new \app\models\CustomerModel($db) ;
+ $modelcompany =new \app\models\CompanyModel($db) ;
+$CompanyController = new app\controllers\CompanyController($modelcompany) ;
+$modelcustomer = new \app\models\CustomerModels($db) ;
 $controllercustomer = new app\controllers\CustomerController($modelcustomer);
 $modelhotel = new \app\models\HotelModels($db) ;
-$controllerhotel = new app\controllers\HotelController($modelhotel) ;
-$modelrating =new \app\models\HotelModels($db) ;
+$HotelController = new app\controllers\HotelController($modelhotel) ;
+$modelrating =new \app\models\RatingModel($db) ;
 $controllerrating = new app\controllers\RatingController($modelrating) ; 
 $modelticket = new \app\models\TicketModels($db) ;
-$controllerticket =new app\controllers\TicketController($modelticket) ;  */
+$TicketController =new app\controllers\TicketController($modelticket) ;  
 switch ($requset)
 {
     /* case BASE_PATH .'getadmin':
@@ -75,50 +75,50 @@ switch ($requset)
         $controllerbooking->deleteBooking($_GET['id']) ;
         break ; 
 
-    /* case BASE_PATH.'getcompany' :
-        $controllercompany->getCompany();
+    case BASE_PATH.'getcompany' :
+        $CompanyController->getCompany();
         break ;
     case BASE_PATH.'addcompany':
-        $controllercompany->addCompany();
+        $CompanyController->addCompany();
         break ;
     case BASE_PATH.'updatecompany?id='. $_GET['id']:
-        $controllercompany->updateCompany($_GET['id']);
+        $CompanyController->updateCompany($_GET['id']);
         break ;
     case BASE_PATH.'deletecompany?id='.$_GET['id'] :
-        $controllercompany->deleteCompany($_GET['id'] ) ;
+        $CompanyController->deleteCompany($_GET['id'] ) ;
         break ;
 
-    case BASE_PATH.'getcustomer' :
-        $controllercustomer->getcustomers() ;
+   case BASE_PATH.'getcustomer' :
+        $controllercustomer->getcustomer() ;
         break ; 
     case BASE_PATH.'addcustomer':
-        $controllercustomer->addcustomers() ;
+        $controllercustomer->addCustomer() ;
         break ;
     case BASE_PATH.'updatecustomer?id='. $_GET['id']:
-        $controllercustomer->updatecustomers($_GET['id']) ;
+        $controllercustomer->updateCustomer($_GET['id']) ;
         break ;
     case BASE_PATH.'deletecustomer?id='.$_GET['id'] :
-        $controllercustomer->deletecustomers($_GET['id']) ;
-        break ;
+        $controllercustomer->deleteCustomer($_GET['id']) ;
+        break ; 
 
     case BASE_PATH.'gethotel' :
-        $controllerhotel->get() ;
+        $HotelController->getHotel() ;
         break ;
     case BASE_PATH.'addhotel':
-        $controllerhotel->addHotel() ;
+        $HotelController->addHotel() ;
         break ;
     case BASE_PATH.'updatehotel?id='. $_GET['id']:
-        $controllerhotel->updateHotel($_GET['id']);
+        $HotelController->updateHotel($_GET['id']);
         break ;
     case BASE_PATH.'deletehotel?id='.$_GET['id'] :
-        $controllerhotel->deleteHotel($_GET['id']) ;
+        $HotelController->deleteHotel($_GET['id']) ;
         break;
 
     case BASE_PATH.'getrating' :  
-        $controllerrating->getRating() ;
+        $controllerrating->getAllRatings() ;
         break ;
     case BASE_PATH.'addrating':
-        $controllerrating->addRating() ;
+        $controllerrating->addRate() ;
         break ;
     case BASE_PATH.'updaterating?id='. $_GET['id']:
         $controllerrating->updateRating($_GET['id']) ;
@@ -126,19 +126,28 @@ switch ($requset)
     case BASE_PATH.'deleterating?id='.$_GET['id'] : 
         $controllerrating->deleteRating($_GET['id']) ;
         break ;
-        
-    case BASE_PATH.'getticket' :
-        $controllerticket->get() ;
+     /*    case BASE_PATH.'searchrating?searchTerm='. $_GET['searchTerm']: 
+            $controllerrating->searchRating($_GET['searchTerm']) ;
+            break ; */
+
+            case BASE_PATH.'getMinRatedHotels': 
+                $controllerrating->getMinRatedHotels() ;
+                break ;
+                case BASE_PATH.'getMaxRatedHotels': 
+                    $controllerrating->getMaxRatedHotels() ;
+                    break ;
+   case BASE_PATH.'getticket' :
+        $TicketController->get() ;
         break ;
     case BASE_PATH.'addticket':
-        $controllerticket->addTicket() ;
+        $TicketController->addTicket() ;
         break ;
     case BASE_PATH.'updateticket?id='. $_GET['id']:
-        $controllerticket->updateTicket($_GET['id']) ;
+        $TicketController->updateTicket($_GET['id']) ;
         break ;
     case BASE_PATH.'deleteticket?id='.$_GET['id'] :  
-        $controllerticket->deleteTicket($_GET['id']) ;
-        break ; */
+        $TicketController->deleteTicket($_GET['id']) ;
+        break ; 
     
 }
 
