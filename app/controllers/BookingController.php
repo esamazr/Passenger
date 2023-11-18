@@ -84,6 +84,13 @@ class BookingController
         }
     }
 }
+public function viewbooking() {
+      
+    $d = $this->model->view();
+    echo json_encode($d);
+    
+  
+}
 }
 
 

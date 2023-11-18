@@ -53,7 +53,7 @@ echo $json."<br>";
         if ($result) {
             echo "admin deleted successfully!";
         } else {
-            echo "Failed to delete Booking!";
+            echo "Failed to delete admin!";
         }
         }
     }

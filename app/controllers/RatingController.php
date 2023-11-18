@@ -83,4 +83,11 @@ $data = ["hotel_id"=>$hotel_id,"customer_id"=>$customer_id,"rate"=>$rate, "comme
      
         return $this->model->searchRating($searchTerm) ;
     }
+    public function viewRating() {
+      
+        $d = $this->model->view();
+        echo json_encode($d);
+        
+      
+    } 
 }

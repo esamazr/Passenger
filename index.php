@@ -37,6 +37,9 @@ switch ($requset)
         $controlleradmin->getadmin();
         break; */
         case BASE_PATH:
+            $controllerbooking->viewbooking();
+            break;
+        case BASE_PATH.'getadmin':
             $controlleradmin->getadmin();
             break;
     case BASE_PATH.'addadmin':
@@ -74,6 +77,9 @@ switch ($requset)
     case BASE_PATH.'deletebooking?id='.$_GET['id']:
         $controllerbooking->deleteBooking($_GET['id']) ;
         break ; 
+        case BASE_PATH.'viewbooking': 
+            $controllerbooking->viewbooking() ;
+            break ; 
 
     case BASE_PATH.'getcompany' :
         $CompanyController->getCompany();
@@ -136,6 +142,9 @@ switch ($requset)
                 case BASE_PATH.'getMaxRatedHotels': 
                     $controllerrating->getMaxRatedHotels() ;
                     break ;
+                     case BASE_PATH.'viewRating': 
+                        $controllerrating->viewRating() ;
+                        break ; 
    case BASE_PATH.'getticket' :
         $TicketController->get() ;
         break ;
