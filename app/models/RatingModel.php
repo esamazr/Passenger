@@ -11,7 +11,24 @@ class RatingModel {
     public function getRating() {
         return $this->db->get('ratings');
     }
+  /*   public function viewRating() {
+        $this->db->join('ratings', 'ratings.hotel_id=hotels.id', 'LEFT');
+        $this->db->join('cities', 'cities.id = hotels.city_id', 'INNER');
+     //   $db->where('t1.column', 'قيمة');
+        return  $this->db->get();
+        
+      
+    } */
 
+    public function view() {
+        $sql = "SELECT ratings.rate,hotels.name
+        FROM ratings
+        JOIN hotels ON ratings.hotel_id=hotels.id";
+
+$results = $this->db->rawQuery($sql);
+return $results;
+    }
+    
     public function addRating($data) {
         return $this->db->insert('ratings', $data);
     }
@@ -31,7 +48,7 @@ class RatingModel {
     }
 
     public function searchRating($searchTerm) {
-        $this->db->where('username', $searchTerm, 'LIKE');
+        $this->db->where('rate',$searchTerm,'LIKE');
         return $this->db->get('ratings');
     }
 }
