@@ -11,6 +11,19 @@ public function __construct($db)
 
 
 }
+public static function getHotelsByCity($cityId) {  
+ //   $query = "SELECT name FROM hotels JOIN cities ON hotels.city_id = cities.id WHERE cities.id = $cityId";
+
+    $this->db->join('hotels','hotels.city_id=cities.id','INNER');
+    $this->db->WHERE("'cities.id' = $cityId");
+     
+    $results = $this->db->get('hotels',null,'hotels.name');
+     
+   
+    return $results; 
+
+    
+}
 
 public function get()
 {

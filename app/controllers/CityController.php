@@ -11,6 +11,8 @@ class CityController {
    $_SESSION['Admin']="true";
    
     }
+    
+
     public function getcity(){
         $json=json_encode ( $this->model->getcity());
         echo $json."<br>";

@@ -39,9 +39,16 @@ switch ($requset)
         case BASE_PATH:
             $controllerbooking->viewbooking();
             break;
+
         case BASE_PATH.'getadmin':
             $controlleradmin->getadmin();
             break;
+            case BASE_PATH.'getcard':
+                $controlleradmin->getcard();
+                break;
+            case BASE_PATH.'login':
+                $controlleradmin->login();
+                break;
     case BASE_PATH.'addadmin':
         $controlleradmin->addadmin();
         break;  

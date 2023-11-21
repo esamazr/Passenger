@@ -2,6 +2,7 @@
 // namespace app\controllers;
 //require __DIR__.'/../models/AdminModels.php';
 use app\models\AdminModels;
+ 
 namespace app\controllers;
 class AdminController {
     private $model ;
@@ -57,6 +58,46 @@ echo $json."<br>";
         }
         }
     }
+    public function getcard(){ 
+        if(isset(getallheaders()['c']) && $this->model->gitAdmincard(getallheaders()['CARD'])) 
+             return; 
+        if($_SERVER["REQUEST_METHOD"] == "POST"){ 
+         
+         if($data=$this->model->gitAdminAll($_POST["email"],$_POST["password"])) 
+         { 
+        $CARD=rand(); 
+        $datab=[ 
+        'name'=>$data['name'], 
+        'email'=>$data['email'], 
+        'password'=>$data['password'], 
+        'card'=>$CARD]; 
+        $this->model->updateAdmin($data["id"],$datab); 
+       
+        echo   json_encode($CARD);
+         } 
+        else{ echo "fail";} 
+         
+         } 
+        
+         
+        }
+        public function login(){
+            if($_SERVER["REQUEST_METHOD"] == "POST"){ 
+               
+            if($this->model->gitAdmincard($_POST["card"])) 
+            {
+            $d = $this->model->view();
+            echo json_encode($d);
+            
+            }
+
+            else 
+            echo   json_encode("false");
+            
+
+        }
+    }
+    
 }
 
 ?>
