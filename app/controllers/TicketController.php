@@ -14,6 +14,14 @@ namespace app\controllers;
          $json=json_encode ($this->model->get());
          echo $json."<br>";
      }
+     public function viewbydatebetween() {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $startDate=$_POST['startDate'];
+            $endDate =$_POST['endDate'] ;
+        }
+        $d = $this->model->viewbydatebetween($startDate,$endDate);
+    echo json_encode($d);
+       }
      public function gettickeById($id){
          return $this->model->gettById($id) ;
           

@@ -27,16 +27,3 @@ trait CreditCardLogin {
     }
 }
 
-class User {
-    use CreditCardLogin;
-     
-}
-
- 
-$user = new User();
-$result = $user->loginWithCreditCard('1234567890123456', '12/24', '123');
-if ($result) {
-    echo 'تم تسجيل الدخول بنجاح!';
-} else {
-    echo 'فشل تسجيل الدخول!';
-}

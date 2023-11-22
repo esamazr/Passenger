@@ -11,7 +11,20 @@ public function __construct($db)
 
 
 }
-
+  
+public function viewbydatebetween($startDate,$endDate) {
+   
+    $stmt = $this->db->prepare("SELECT * FROM tickets WHERE date_s BETWEEN :startDate AND :endDate");
+    $stmt->bindParam(':startDate', $startDate);
+    $stmt->bindParam(':endDate', $endDate);
+    $stmt= $this->db->join('tickets','hotels.customer_id=customers.id');
+    $stmt = $this->db->get('customers',null,'customers.name');
+    
+   
+ 
+   
+   return $stmt;
+   }
 public function get()
 {
     return $this->db->get('tickets');

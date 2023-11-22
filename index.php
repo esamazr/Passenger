@@ -164,6 +164,9 @@ switch ($requset)
     case BASE_PATH.'deleteticket?id='.$_GET['id'] :  
         $TicketController->deleteTicket($_GET['id']) ;
         break ; 
+        case BASE_PATH.'viewbydatebetween':  
+            $TicketController->viewbydatebetween() ;
+            break ; 
     
 }
 
