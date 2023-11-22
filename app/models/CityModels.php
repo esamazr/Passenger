@@ -7,6 +7,18 @@ public function __construct($db)
 {
     $this->db=$db;
 }
+public static function getCityName($cityId) {
+      
+      
+    $query = "SELECT name FROM cities WHERE id = $cityId";
+
+  
+
+ 
+    $city = $query->fetch(PDO::FETCH_ASSOC);
+
+    return $city['city_name'];
+}
 
 public function getcity()
 {

@@ -1,6 +1,7 @@
 <?php
  
 use app\models\HotelModels;
+//use app\models\CityModels;
 namespace app\controllers;
 class HotelController{
     private $model;
@@ -10,11 +11,15 @@ class HotelController{
    
       $_SESSION['Admin']="true";
     }
+    
     public function addHotel(){
         if($_SERVER["REQUEST_METHOD"] == "POST"){
          $data = ["name"=>$_POST["name"],
          "city_id" => $_POST["city_id"]
         ];
+      //  $hotels =  $this->model->getHotelsByCity($data["city_id"]);
+       // echo   json_encode($hotels);
+       // $cityName = CityModels::getCityName($cityId);
          $this->model->addHotel($data);
          echo   json_encode(array("status"=>true,"data"=>$data));
         }
